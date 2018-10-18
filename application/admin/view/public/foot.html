@@ -1,0 +1,186 @@
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="/static/admin/js/jquery.js"></script>
+<script src="/static/admin/js/jquery-1.8.3.min.js"></script>
+<script src="/static/admin/js/bootstrap.min.js"></script>
+<script src="/static/admin/js/jquery.scrollTo.min.js"></script>
+<script src="/static/admin/js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="/static/admin/js/jquery.sparkline.js" type="text/javascript"></script>
+<script src="/static/admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+<script src="/static/admin/js/owl.carousel.js"></script>
+<script src="/static/admin/js/jquery.customSelect.min.js"></script>
+
+<!--common script for all pages-->
+<script src="/static/admin/js/common-scripts.js"></script>
+
+<!--script for this page-->
+<script src="/static/admin/js/sparkline-chart.js"></script>
+<script src="/static/admin/js/easy-pie-chart.js"></script>
+<script src="/static/admin/js/app/login.js"></script>
+<script src="/static/admin/js/app/upload.js"></script>
+
+<script>
+  //owl carousel
+
+  $(document).ready(function() {
+    $("#owl-demo").owlCarousel({
+      navigation: true,
+      slideSpeed: 300,
+      paginationSpeed: 400,
+      singleItem: true
+
+    });
+  });
+
+  $(function() {
+    $('select.styled').customSelect();
+  });
+
+  // $('#product_form').click(function(){
+  //     $.post("/admin/productAdd",{
+  //         pd_title:$('#pd_title').val(),
+  //         pd_content: $('#pd_content').val(),
+  //         pd_order:$('#pd_order').val(),
+  //         pd_img:$('#pd_img').val(),
+  //     },function(data, status){
+  //         switch(data.status){
+  //             case '200':
+  //                 alert(data.message);
+  //                 window.location.replace("/admin/product/1");
+  //                 break;
+  //             default:
+  //                 alert(data.message);
+  //         }
+  //     });
+  //
+  // })
+//管理员添加表单提交
+  $('#admin_add').click(function(){
+      $.post("/admin/indexAdd",{
+          dengluming:$('#dengluming').val(),
+          mima: $('#mima').val(),
+          xingming:$('#xingming').val(),
+          zhuangtai:$('#zhuangtai').val(),
+      },function(data){
+          switch(data.status){
+              case '200':
+                  showTips(data.message,100,2);
+                  setTimeout(function(){
+                      window.location.replace("/admin");
+                  },2000)
+                  break;
+              default:
+                  showTips(data.message,100,3);
+          }
+      });
+
+  })
+  //管理员添加表单提交
+  $('#admin_edit').click(function(){
+      var id = $('#id').val();
+      console.log(id);
+      $.post("/admin/indexEdit/"+id,{
+          id:id,
+          dengluming:$('#dengluming').val(),
+          mima: $('#mima').val(),
+          xingming:$('#xingming').val(),
+      },function(data){
+          console.log(data);
+          switch(data.status){
+              case '200':
+                  showTips(data.message,100,2);
+                  setTimeout(function(){
+                      window.location.replace("/admin");
+                  },2000)
+                  break;
+              default:
+                  showTips(data.message,100,3);
+          }
+      });
+
+  })
+  //登录表单提交
+  $('#btn_login').click(function(){
+      $.post("/admin/login",{
+          dengluming:$('#ipt_user_id').val(),
+          mima: $('#ipt_password').val(),
+      },function(data){
+          switch(data.status){
+              case '200':
+                  showTips(data.message,50,2);
+                  setTimeout(function(){
+                      window.location.replace("/admin");
+                  },2000)
+                  break;
+              default:
+                  showTips(data.message,100,3);
+          }
+      });
+
+  })
+  //退出
+  $('#admin_quit').click(function(){
+      $.post("/admin/quit",{},function(data){
+          switch(data.status){
+              case '200':
+                  showTips(data.message,100,2);
+                  setTimeout(function(){
+                      window.location.replace("/admin/login");
+                  },2000)
+                  break;
+              default:
+                  showTips(data.message,100,2);
+          }
+      });
+  })
+  //联系我们保存提交
+  $('#contact_save').click(function(){
+      $.post("/admin/contactEdit",{
+          id:$('#id').val(),
+          cu_company:$('#cu_company').val(),
+          cu_name:$('#cu_name').val(),
+          cu_email:$('#cu_email').val(),
+          cu_seat:$('#cu_seat').val(),
+          cu_phone:$('#cu_phone').val(),
+          cu_access:$('#cu_access').val(),
+          cu_chuanzhen:$('#cu_chuanzhen').val(),
+      },function(data){
+          switch(data.status){
+              case '200':
+                  showTips(data.message,100,2);
+                  break;
+              default:
+                  showTips(data.message,100,2);
+          }
+      });
+  })
+  //contetn为要显示的内容
+  //height为离窗口顶部的距离
+  //time为多少秒后关闭的时间，单位为秒
+  function showTips( content, height, time ){
+      //窗口的宽度
+      var windowWidth  = $(window).width();
+      var tipsDiv = '<div class="tipsClass">' + content + '</div>';
+
+      $( 'body' ).append( tipsDiv );
+      $( 'div.tipsClass' ).css({
+          'top'       : height + 'px',
+          'left'      : ( windowWidth / 2 ) - 350/2 + 'px',
+          'position'  : 'absolute',
+          'padding'   : '3px 5px',
+          'background': '#8FBC8F',
+          'font-size' : 15 + 'px',
+          'margin'    : '0 auto',
+          'text-align': 'center',
+          'width'     : '350px',
+          'height'    : 'auto',
+          'color'     : '#fff',
+          'opacity'   : '0.8'
+      }).show();
+      setTimeout( function(){$( 'div.tipsClass' ).fadeOut();}, ( time * 1000 ) );
+  }
+
+</script>
+
+</body>
+
+</html>

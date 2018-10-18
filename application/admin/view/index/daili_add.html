@@ -1,0 +1,72 @@
+<!--头部文件-->
+{include file="public/head" /}
+
+<body>
+  <section id="container" class="">
+    <!--头部栏-->
+    {include file="public/header"}
+    <!--侧边栏-->
+    {include file="public/sidebar"}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                新增一级代理
+              </header>
+              <div class="panel-body">
+                             <form class="form-horizontal" role="form" method="post">
+                               <div class="form-group">
+                                   <label class="col-lg-2 control-label">用户名</label>
+                                   <div class="col-lg-10">
+                                       <input class="form-control" id="dl_username" name="dl_username" required placeholder="用户名">
+                                   </div>
+                               </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">密码</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="dl_password" name="dl_password" required placeholder="密码">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">手机</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="dl_phone" name="dl_phone" required placeholder="手机">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">邮箱</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="dl_email" name="dl_email" placeholder="邮箱">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">帐户状态</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="dl_status">
+                                              <option  value="1" selected>启用</option>
+                                              <option  value="0" >停用</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                  <div class="form-group">
+                                     <div class="col-lg-offset-2 col-lg-10">
+                                     <input name="page" type="hidden" value="{$page}">
+                                         <button class="btn btn-danger" type="submit">提交</button>
+                                     </div>
+                                 </div>
+                             </form>
+                         </div>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!--尾部文件-->
+  {include file="public/foot" /}

@@ -1,0 +1,173 @@
+<!--头部文件-->
+{include file="public/head" /}
+
+<body>
+  <section id="container" class="">
+    <!--头部栏-->
+    {include file="public/header"}
+    <!--侧边栏-->
+    {include file="public/sidebar"}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                资金流水日志记录 list
+              </header>
+              <div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+				<form id="form1" name="form1" method="get" >
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div id="sample_1_length" class="dataTables_length">
+                      <label>类型:
+                        <select size="1"  aria-controls="sample_1" class="form-control" name="zjls_leixing" id="zjls_leixing">
+                          {if condition="$data.zjls_leixing=='0'"}
+                          <option  value="0" selected>全部</option>
+                          {elseif condition="$data.zjls_leixing=='1'"}
+                          <option  value="1" selected>入金</option>
+                          {elseif condition="$data.zjls_leixing=='2'"}
+                          <option  value="2" selected>出金</option>
+                          {elseif condition="$data.zjls_leixing=='3'"}
+                          <option  value="3" selected>交易</option>
+                          {elseif condition="$data.zjls_leixing=='4'"}
+                          <option  value="4" selected>接口更新余额</option>
+                          {elseif condition="$data.zjls_leixing=='5'"}
+                          <option  value="5" selected>接口更新交易记录</option>
+                          {/if}                       
+                        
+                          <option value="0">全部</option>
+                          <option value="1">入金</option>
+                          <option value="2">出金</option>
+                          <option value="3">交易</option>
+                          <option value="4">接口更新余额</option>
+                          <option value="5">接口更新交易记录</option>
+                        </select>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div id="sample_1_length" class="dataTables_length">
+                      <label>订单时间:</label>
+                      <input id="reservation" type="text" class="form-control" placeholder="2018-03-01" style="width: 200px;" name="reservation" value="{if condition='$data.kaishishijian'}{$data.kaishishijian}{/if}"> 至 <input id="reservation2" placeholder="2018-04-01" type="text" class="form-control" style="width: 200px;" name="reservation2" value="{if condition='$data.jiesushijian'}{$data.jiesushijian}{/if}">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="dataTables_filter" id="sample_1_filter">
+                        <input type="text" aria-controls="sample_1" class="form-control" style="width: 200px;" placeholder="商户ID" name="shanghuid" id="shanghuid" value="{if condition='$data.shanghuid'}{$data.shanghuid}{/if}">
+                        <button class="btn btn-success" type="button" onClick="searchsubmit();">搜索</button>
+                    </div>
+                  </div>
+                </div>
+                </form>
+                <script language="javascript">
+				function searchsubmit()
+				{
+					var a=$("#zjls_leixing").attr("value");
+					var b=$("#reservation").attr("value");
+					var c=$("#reservation2").attr("value");
+					var d=$("#shanghuid").attr("value");
+					//alert(a);
+//					alert(b);
+//					alert(c);
+//					alert(d);
+//					alert(e);
+					if(!b)
+					{
+						b=0;	
+					}
+					if(!c)
+					{
+						c=0;	
+					}
+					if(!d)
+					{
+						d=0;	
+					}
+					location.href='/admcncp/zijinrizhi/'+{$data.page}+'/'+a+'/'+b+'/'+c+'/'+d;
+
+				}
+				</script>
+                <table class="table table-striped border-top dataTable" id="sample_1" aria-describedby="sample_1_info">
+                  <thead style="font-size:14px">
+                    <tr role="row">
+                      <th class="sorting"   width="50">id</th>
+                      <th class="sorting"   width="100">商户姓名</th>
+                      <th class="sorting" width="50">类型</th>
+                      <th class="sorting" width="100">发生金额</th>
+                      <th class="sorting" width="100">发生前余额</th>
+                      <th class="sorting" width="100">发生后余额</th>
+                      <th class="sorting" width="100">发生时间</th>
+                      <th class="sorting" >备注</th>
+                    </tr>
+                  </thead>
+{foreach name="info" item="vo"}
+                  <tbody role="alert" aria-live="polite" aria-relevant="all" style="font-size:12px">
+                    <tr class="odd gradeX">
+                      <td class=" ">{$vo.zjls_id}</td>
+                      <td class=" ">{$vo.bu_xingming}</td>
+                      <td class=" ">
+                      {if condition="$vo.zjls_leixing==1"}
+                      入金
+                      {elseif condition="$vo.zjls_leixing==2"}
+                      出金
+                      {elseif condition="$vo.zjls_leixing==3"}
+                      交易
+                      {elseif condition="$vo.zjls_leixing==4"}
+                      接口更新余额
+                      {elseif condition="$vo.zjls_leixing==5"}
+                      接口更新交易记录
+                      {/if}
+                      </td>
+                      <td class="">{$vo.zjls_jine}$</td>
+                      <td class="">{$vo.zjls_qian_yue}$</td>
+                      <td class="">{$vo.zjls_hou_yue}$</td>
+                      <td class="">{$vo.zjls_time|date="Y-m-d H:i:s",###}</td>
+                      <td class="">{$vo.zjls_beizhu}</td>
+                    </tr>
+                  </tbody>
+{/foreach}                  
+                </table>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="dataTables_info" id="sample_1_info">一共{$data.countpage}页  当前第{$data.page}页 一共{$countnum}条记录</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="dataTables_paginate paging_bootstrap pagination">
+                      <ul>
+                        <li class="prev"><a href="/admcncp/zijinrizhi/{$data.shangpage}/{$data.zjls_leixing}/{$data.kaishishijian}/{$data.jiesushijian}/{$data.shanghuid}">← 上一页</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li class="next"><a href="/admcncp/zijinrizhi/{$data.xiapage}/{$data.zjls_leixing}/{$data.kaishishijian}/{$data.jiesushijian}/{$data.shanghuid}">下一页 → </a></li>
+                        <li >转到第&nbsp;<input name="page11" id="page11" type="text" size="4" style=" border:1px solid #999999;" />&nbsp;页 <input name="tiaozhuan" value="跳转" type="button" onClick="tiaosubmit()"></li>
+                <script language="javascript">
+				function tiaosubmit()
+				{
+					var tiaopage=$("#page11").attr("value");
+					if(tiaopage>0)
+					{
+					location.href='/admcncp/zijinrizhi/'+tiaopage+'/{$data.zjls_leixing}/{$data.kaishishijian}/{$data.jiesushijian}/{$data.shanghuid}';
+					}
+					else
+					{
+						alert("页数不能小于等于0");	
+					}
+				}
+				</script>
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!--尾部文件-->
+  {include file="public/foot" /}

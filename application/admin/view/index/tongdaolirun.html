@@ -1,0 +1,153 @@
+<!--头部文件-->
+{include file="public/head" /}
+
+<body>
+  <section id="container" class="">
+    <!--头部栏-->
+    {include file="public/header"}
+    <!--侧边栏-->
+    {include file="public/sidebar"}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                通道利润流水日志 list
+              </header>
+              <div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+				<form id="form1" name="form1" method="get" >
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div id="sample_1_length" class="dataTables_length" style="font-size:18px; font-weight:bold;">
+                      所有通道总利润：{$all_price.allprice} 元
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div id="sample_1_length" class="dataTables_length">
+                      <label>发生时间:</label>
+                      <input id="reservation" type="text" class="form-control" placeholder="2018-03-01" style="width: 200px;" name="reservation" value="{if condition='$data.kaishishijian'}{$data.kaishishijian}{/if}"> 至 <input id="reservation2" placeholder="2018-04-01" type="text" class="form-control" style="width: 200px;" name="reservation2" value="{if condition='$data.jiesushijian'}{$data.jiesushijian}{/if}">
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="dataTables_filter" id="sample_1_filter">
+                        <input type="text" aria-controls="sample_1" class="form-control" style="width: 200px;" placeholder="通道ID" name="tongdaoid" id="tongdaoid" value="{if condition='$data.tongdaoid'}{$data.tongdaoid}{/if}">
+                        <button class="btn btn-success" type="button" onClick="searchsubmit();">搜索</button>
+                    </div>
+                  </div>
+                </div>
+                </form>
+                <script language="javascript">
+				function searchsubmit()
+				{
+					var b=$("#reservation").attr("value");
+					var c=$("#reservation2").attr("value");
+					var d=$("#tongdaoid").attr("value");
+					//alert(a);
+//					alert(b);
+//					alert(c);
+//					alert(d);
+//					alert(e);
+					if(!b)
+					{
+						b=0;	
+					}
+					if(!c)
+					{
+						c=0;	
+					}
+					if(!d)
+					{
+						d=0;	
+					}
+					location.href='/admcncp/tongdaolirun/'+{$data.page}+'/'+b+'/'+c+'/'+d;
+
+				}
+				</script>
+                <table class="table table-striped border-top dataTable" id="sample_1" aria-describedby="sample_1_info">
+                  <thead style="font-size:14px">
+                    <tr role="row">
+                      <th class="sorting"   width="50">id</th>
+                      <th class="sorting"   width="50">通道ID</th>
+                      <th class="sorting"   width="100">通道名称</th>
+                      <th class="sorting" width="100">类型</th>
+                      <th class="sorting" width="50">类型ID</th>
+                      <th class="sorting" width="100">发生利润金额</th>
+                      <th class="sorting" width="100">手续费</th>
+                      <th class="sorting" width="100">实际入帐金额</th>
+                      <th class="sorting" width="100">发生前利润余额</th>
+                      <th class="sorting" width="100">发生后利润余额</th>
+                      <th class="sorting" width="100">发生时间</th>
+                      <th class="sorting" width="100">备注</th>
+                    </tr>
+                  </thead>
+{foreach name="info" item="vo"}
+                  <tbody role="alert" aria-live="polite" aria-relevant="all" style="font-size:12px">
+                    <tr class="odd gradeX">
+                      <td class=" ">{$vo.lr_id}</td>
+                      <td class=" ">{$vo.lr_td_id}</td>
+                      <td class=" ">{$vo.td_mingcheng}</td>
+                      <td class=" ">
+                      {if condition="$vo.lr_zhuangtai==1"}
+                      商户提现（利润余额增加）
+                      {elseif condition="$vo.lr_zhuangtai==2"}
+                      商户入金（利润余额增加）
+                      {elseif condition="$vo.lr_zhuangtai==3"}
+                      管理员利润提取（利润余额减少）
+                      {/if}
+                      </td>
+                      <td class="">{$vo.lr_zhuangtaiID}</td>
+                      <td class="">¥{$vo.lr_jine}元</td>
+                      <td class="">¥{$vo.lr_shouxufei}元</td>
+                      <td class="">¥{$vo.lr_zongjine}元</td>
+                      <td class="">¥{$vo.lr_qianyue}元</td>
+                      <td class="">¥{$vo.lr_houyue}元</td>
+                      <td class="">{$vo.lr_time|date="Y-m-d H:i:s",###}</td>
+                      <td class="">{$vo.lr_beizhu}</td>
+                    </tr>
+                  </tbody>
+{/foreach}                  
+                </table>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="dataTables_info" id="sample_1_info">一共{$data.countpage}页  当前第{$data.page}页 一共{$countnum}条记录</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="dataTables_paginate paging_bootstrap pagination">
+                      <ul>
+                        <li class="prev"><a href="/admcncp/tongdaolirun/{$data.shangpage}/{$data.kaishishijian}/{$data.jiesushijian}/{$data.tongdaoid}">← 上一页</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li class="next"><a href="/admcncp/tongdaolirun/{$data.xiapage}/{$data.kaishishijian}/{$data.jiesushijian}/{$data.tongdaoid}">下一页 → </a></li>
+                        <li >转到第&nbsp;<input name="page11" id="page11" type="text" size="4" style=" border:1px solid #999999;" />&nbsp;页 <input name="tiaozhuan" value="跳转" type="button" onClick="tiaosubmit()"></li>
+                <script language="javascript">
+				function tiaosubmit()
+				{
+					var tiaopage=$("#page11").attr("value");
+					if(tiaopage>0)
+					{
+					location.href='/admcncp/tongdaolirun/'+tiaopage+'/{$data.kaishishijian}/{$data.jiesushijian}/{$data.tongdaoid}';
+					}
+					else
+					{
+						alert("页数不能小于等于0");	
+					}
+				}
+				</script>
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!--尾部文件-->
+  {include file="public/foot" /}

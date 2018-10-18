@@ -1,0 +1,1354 @@
+<!--头部文件-->
+{include file="public/head" /}
+
+<body>
+  <section id="container" class="">
+    <!--头部栏-->
+    {include file="public/header"}
+    <!--侧边栏-->
+    {include file="public/sidebar"}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                详细信息
+              </header>
+              <div class="panel-body">
+                             <form class="form-horizontal" role="form" method="post">
+                               <div class="form-group">
+                                   <label class="col-lg-2 control-label">用户id</label>
+                                   <div class="col-lg-10">
+                                       <input class="form-control" id="bu_id" name="bu_id"  readonly value="{$info.bu_id}">
+                                   </div>
+                               </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">电话国家区号</label>
+                                     <div class="col-lg-10">
+                                       <input class="form-control" id="bu_countrynum" name="bu_countrynum"   value="{$info.bu_countrynum}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">手机号</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_phone" name="bu_phone"   value="{$info.bu_phone}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">邮箱</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_email" name="bu_email"   value="{$info.bu_email}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">用户名</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_username" name="bu_username"   value="{$info.bu_username}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">国籍（ID）</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_guoji_id" name="bu_guoji_id"   value="{$info.bu_guoji_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">国籍</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_guoji" name="bu_guoji"   value="{$info.bu_guoji}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">国籍与法定居住国一致</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_guoji_fading">
+                                          {if condition="$info.bu_guoji_fading==0"}
+                                          <option  value="0" selected>不一致</option>
+                                          {elseif condition="$info.bu_guoji_fading==1"}
+                                          <option  value="1" selected>一致</option>
+                                          {/if}                       
+                                              <option  value="0">不一致</option>
+                                              <option  value="1">一致</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">法定居住国（ID）</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_fading_juzhuguo_id" name="bu_fading_juzhuguo_id"   value="{$info.bu_fading_juzhuguo_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">法定居住国</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_fading_juzhuguo" name="bu_fading_juzhuguo"   value="{$info.bu_fading_juzhuguo}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">国籍与出生国一致</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_guoji_chusheng">
+                                          {if condition="$info.bu_guoji_chusheng==0"}
+                                          <option  value="0" selected>不一致</option>
+                                          {elseif condition="$info.bu_guoji_chusheng==1"}
+                                          <option  value="1" selected>一致</option>
+                                          {/if}                       
+                                              <option  value="0">不一致</option>
+                                              <option  value="1">一致</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">出生国（ID）</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_chushengguo_id" name="bu_chushengguo_id"   value="{$info.bu_chushengguo_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">出生国</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_chushengguo" name="bu_chushengguo"   value="{$info.bu_chushengguo}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">不是法定的美国居民</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_guoji_chusheng">
+                                          {if condition="$info.bu_bushimeiguo==0"}
+                                          <option  value="0" selected>不是</option>
+                                          {elseif condition="$info.bu_bushimeiguo==1"}
+                                          <option  value="1" selected>是</option>
+                                          {/if}                       
+                                              <option  value="0">不是</option>
+                                              <option  value="1">是</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">纳税居住地（ID）</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_nashui_juzhudi_id" name="bu_nashui_juzhudi_id"   value="{$info.bu_nashui_juzhudi_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">纳税居住地</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_nashui_juzhudi" name="bu_nashui_juzhudi"   value="{$info.bu_nashui_juzhudi}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">没有税收识别号</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_meiyou_shuihao">
+                                          {if condition="$info.bu_meiyou_shuihao==0"}
+                                          <option  value="0" selected>没有</option>
+                                          {elseif condition="$info.bu_meiyou_shuihao==1"}
+                                          <option  value="1" selected>有</option>
+                                          {/if}                       
+                                              <option  value="0">没有</option>
+                                              <option  value="1">有</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">纳税识别号</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_nashui_shibiehao" name="bu_nashui_shibiehao"   value="{$info.bu_nashui_shibiehao}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">姓名</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_xingming" name="bu_xingming"   value="{$info.bu_xingming}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">姓的拼音</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_xing_pinyin" name="bu_xing_pinyin"   value="{$info.bu_xing_pinyin}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">名的拼音</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_ming_pinyin" name="bu_ming_pinyin"   value="{$info.bu_ming_pinyin}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">证件类型</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_zhengjian_leixing">
+                                          {if condition="$info.bu_zhengjian_leixing==0"}
+                                          <option  value="0" selected>身份证</option>
+                                          {/if}                       
+                                              <option  value="0">身份证</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">证件号码</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_zhengjian_haoma" name="bu_zhengjian_haoma"   value="{$info.bu_zhengjian_haoma}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">出生日期</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_chushengriqi" name="bu_chushengriqi"   value="{$info.bu_chushengriqi}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">使用身份证作为地址证明</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_dizhizhengming">
+                                          {if condition="$info.bu_dizhizhengming==0"}
+                                          <option  value="0" selected>不是身份证</option>
+                                          {elseif condition="$info.bu_dizhizhengming==1"}
+                                          <option  value="1" selected>身份证</option>
+                                          {/if}                       
+                                              <option  value="0">不是身份证</option>
+                                              <option  value="1">身份证</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">地址证明文件类型</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_dizhizhengming_leixing">
+                                          {if condition="$info.bu_dizhizhengming_leixing==0"}
+                                          <option  value="0" selected>房产证</option>
+                                          {elseif condition="$info.bu_dizhizhengming_leixing==1"}
+                                          <option  value="1" selected>银行结单</option>
+                                          {elseif condition="$info.bu_dizhizhengming_leixing==2"}
+                                          <option  value="2" selected>驾照</option>
+                                          {elseif condition="$info.bu_dizhizhengming_leixing==3"}
+                                          <option  value="3" selected>户口本</option>
+                                          {elseif condition="$info.bu_dizhizhengming_leixing==4"}
+                                          <option  value="4" selected>水电费帐单</option>
+                                          {/if}                       
+                                              <option  value="0">房产证</option>
+                                              <option  value="1">银行结单</option>
+                                              <option  value="2">驾照</option>
+                                              <option  value="3">户口本</option>
+                                              <option  value="4">水电费帐单</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">省的流水ID</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_yj_sheng_id" name="bu_yj_sheng_id"   value="{$info.bu_yj_sheng_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">省名</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_yj_sheng_name" name="bu_yj_sheng_name"   value="{$info.bu_yj_sheng_name}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">市的流水ID</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_yj_shi_id" name="bu_yj_shi_id"   value="{$info.bu_yj_shi_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">市名</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_yj_shi_name" name="bu_yj_shi_name"   value="{$info.bu_yj_shi_name}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">区的流水ID</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_yj_qu_id" name="bu_yj_qu_id"   value="{$info.bu_yj_qu_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">区名</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_yj_qu_name" name="bu_yj_qu_name"   value="{$info.bu_yj_qu_name}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">居住地址</label>
+                                     <div class="col-lg-10">
+                                        <textarea class="form-control " id="bu_yj_juzhudizhi" name="bu_yj_juzhudizhi" rows="5" >{$info.bu_yj_juzhudizhi}</textarea>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">家庭成员数</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_jiating_chengyuan">
+                                          {if condition="$info.bu_jiating_chengyuan==0"}
+                                          <option  value="0" selected>0</option>
+                                          {elseif condition="$info.bu_jiating_chengyuan==1"}
+                                          <option  value="1" selected>1</option>
+                                          {elseif condition="$info.bu_jiating_chengyuan==2"}
+                                          <option  value="2" selected>2</option>
+                                          {elseif condition="$info.bu_jiating_chengyuan==3"}
+                                          <option  value="3" selected>3</option>
+                                          {elseif condition="$info.bu_jiating_chengyuan==4"}
+                                          <option  value="4" selected>4</option>
+                                          {elseif condition="$info.bu_jiating_chengyuan==5"}
+                                          <option  value="5" selected>5+</option>
+                                          {/if}                       
+                                              <option  value="0">0</option>
+                                              <option  value="1">1</option>
+                                              <option  value="2">2</option>
+                                              <option  value="3">3</option>
+                                              <option  value="4">4</option>
+                                              <option  value="5">5+</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">婚姻状况</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_hunyin_zhuangkuang">
+                                          {if condition="$info.bu_hunyin_zhuangkuang==0"}
+                                          <option  value="0" selected>单身</option>
+                                          {elseif condition="$info.bu_hunyin_zhuangkuang==1"}
+                                          <option  value="1" selected>已婚</option>
+                                          {elseif condition="$info.bu_hunyin_zhuangkuang==2"}
+                                          <option  value="2" selected>离异</option>
+                                          {elseif condition="$info.bu_hunyin_zhuangkuang==3"}
+                                          <option  value="3" selected>丧偶</option>
+                                          {/if}                       
+                                              <option  value="0">单身</option>
+                                              <option  value="1">已婚</option>
+                                              <option  value="2">离异</option>
+                                              <option  value="3">丧偶</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">职业状况</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_zhiye_zhuangkuang">
+                                          {if condition="$info.bu_zhiye_zhuangkuang==0"}
+                                          <option  value="0" selected>受雇</option>
+                                          {elseif condition="$info.bu_zhiye_zhuangkuang==1"}
+                                          <option  value="1" selected>创业</option>
+                                          {elseif condition="$info.bu_zhiye_zhuangkuang==2"}
+                                          <option  value="2" selected>学生/实习生</option>
+                                          {elseif condition="$info.bu_zhiye_zhuangkuang==3"}
+                                          <option  value="3" selected>退休</option>
+                                          {elseif condition="$info.bu_zhiye_zhuangkuang==4"}
+                                          <option  value="4" selected>家庭主妇</option>
+                                          {elseif condition="$info.bu_zhiye_zhuangkuang==5"}
+                                          <option  value="5" selected>失业</option>
+                                          {elseif condition="$info.bu_zhiye_zhuangkuang==6"}
+                                          <option  value="6" selected>在家交易者</option>
+                                          {/if}                       
+                                              <option  value="0">受雇</option>
+                                              <option  value="1">创业</option>
+                                              <option  value="2">学生/实习生</option>
+                                              <option  value="3">退休</option>
+                                              <option  value="4">家庭主妇</option>
+                                              <option  value="5">失业</option>
+                                              <option  value="6">在家交易者</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">单位名称</label>
+                                     <div class="col-lg-10">
+                                        <textarea class="form-control " id="bu_danwei_mingcheng" name="bu_danwei_mingcheng" rows="5" >{$info.bu_danwei_mingcheng}</textarea>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">省的流水ID</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_danwei_sheng_id" name="bu_danwei_sheng_id"   value="{$info.bu_danwei_sheng_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">省</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_danwei_sheng_name" name="bu_danwei_sheng_name"   value="{$info.bu_danwei_sheng_name}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">市的流水ID</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_danwei_shi_id" name="bu_danwei_shi_id"   value="{$info.bu_danwei_shi_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">市</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_danwei_shi_name" name="bu_danwei_shi_name"   value="{$info.bu_danwei_shi_name}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">区的流水ID</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_danwei_qu_id" name="bu_danwei_qu_id"   value="{$info.bu_danwei_qu_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">区</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_danwei_qu_name" name="bu_danwei_qu_name"   value="{$info.bu_danwei_qu_name}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">单位详细地址</label>
+                                     <div class="col-lg-10">
+                                        <textarea class="form-control " id="bu_danwei_xiangxidizhi" name="bu_danwei_xiangxidizhi" rows="5" >{$info.bu_danwei_xiangxidizhi}</textarea>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">行业流水ID</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_hangye_id" name="bu_hangye_id"   value="{$info.bu_hangye_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">行业名称</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_hangye_name" name="bu_hangye_name"   value="{$info.bu_hangye_name}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">职位流水ID </label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_zhiwei_id" name="bu_zhiwei_id"   value="{$info.bu_zhiwei_id}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">职位名称</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_zhiwei_name" name="bu_zhiwei_name"   value="{$info.bu_zhiwei_name}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">其他职位</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_zhiwei_qita" name="bu_zhiwei_qita"   value="{$info.bu_zhiwei_qita}">
+                                     </div>
+                                 </div>
+                                 
+                                 <!--收入来源部分--开始-->
+                                 {foreach name="shourulaiyuan" item="vo" key="k"}
+									<div class="form-group">
+                                      <label class="control-label col-lg-2" for="inputSuccess">收入来源 {$k+1}</label>
+                                      <div class="col-lg-10">
+                                          <div class="row">
+                                              <div class="col-lg-2">
+                                                  <input type="text" class="form-control"   value="{$vo.srly_laiyuan_leixing}">
+                                              </div>
+                                              <div class="col-lg-3">
+                                                  <input type="text" class="form-control"   value="{$vo.srly_zhanbi} %">
+                                              </div>
+                                          </div>
+
+                                      </div>
+                                  </div>                                 
+                                 {/foreach}  
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">其他收入来源描述</label>
+                                     <div class="col-lg-10">
+                                        <textarea class="form-control " id="bu_qitashouru_miaoshu" name="bu_qitashouru_miaoshu" rows="5" >{$info.bu_qitashouru_miaoshu}</textarea>
+                                     </div>
+                                 </div>
+                                 <!--收入来源部分--结束-->
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">规管信息 1</label>
+                                     <div class="col-lg-10">账户所有人本人及其直系亲属是否为登记的证券经纪人，证券交易所、监管组织、证券或商品经纪公司的员工、关联人员、利害关系人？
+                                         <select class="form-control m-bot15" name="bu_guanlianren">
+                                          {if condition="$info.bu_guanlianren==0"}
+                                          <option  value="0" selected>否</option>
+                                          {elseif condition="$info.bu_guanlianren==1"}
+                                          <option  value="1" selected>是</option>
+                                          {/if}                       
+                                              <option  value="0">否</option>
+                                              <option  value="1">是</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">直系亲属</label>
+                                     <div class="col-lg-10">
+                                        <textarea class="form-control " id="bu_zhixiqinshu" name="bu_zhixiqinshu" rows="5" >{$info.bu_zhixiqinshu}</textarea>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">规管信息 2</label>
+                                     <div class="col-lg-10">帐户持有人是否是一家公共上市公司的董事，持10%股权的股东或决策人？
+                                         <select class="form-control m-bot15" name="bu_gongsidongshi">
+                                          {if condition="$info.bu_gongsidongshi==0"}
+                                          <option  value="0" selected>否</option>
+                                          {elseif condition="$info.bu_gongsidongshi==1"}
+                                          <option  value="1" selected>是</option>
+                                          {/if}                       
+                                              <option  value="0">否</option>
+                                              <option  value="1">是</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">上市公司代码</label>
+                                     <div class="col-lg-10">
+                                        <textarea class="form-control " id="bu_gongsidaima" name="bu_gongsidaima" rows="5" >{$info.bu_gongsidaima}</textarea>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">帐户类型</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_zhanghuleixing">
+                                          {if condition="$info.bu_zhanghuleixing==1"}
+                                          <option  value="1" selected>环球帐户</option>
+                                          {elseif condition="$info.bu_zhanghuleixing==2"}
+                                          <option  value="2" selected>标准帐户</option>
+                                          {/if}                       
+                                              <option  value="1">环球帐户</option>
+                                              <option  value="2">标准帐户</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 
+<!--标准帐户 -->                                
+{if condition="$info.bu_zhanghuleixing==2"}                                 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">是否开通融资功能</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_kaitong_rongzi">
+                                          {if condition="$info.bu_kaitong_rongzi==1"}
+                                          <option  value="1" selected>是</option>
+                                          {elseif condition="$info.bu_kaitong_rongzi==0"}
+                                          <option  value="0" selected>否</option>
+                                          {/if}                       
+                                              <option  value="1">是</option>
+                                              <option  value="0">否</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 
+{/if}                                 
+                                
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">股票交易年数</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_gupiao_jiaoyinianshu">
+                                          {if condition="$info.bu_gupiao_jiaoyinianshu==0"}
+                                          <option  value="0" selected>交易年数: 0</option>
+                                          {elseif condition="$info.bu_gupiao_jiaoyinianshu==1"}
+                                          <option  value="1" selected>交易年数: 1</option>
+                                          {elseif condition="$info.bu_gupiao_jiaoyinianshu==2"}
+                                          <option  value="2" selected>交易年数: 2</option>
+                                          {elseif condition="$info.bu_gupiao_jiaoyinianshu==3"}
+                                          <option  value="3" selected>交易年数: 3</option>
+                                          {elseif condition="$info.bu_gupiao_jiaoyinianshu==4"}
+                                          <option  value="4" selected>交易年数: 4</option>
+                                          {elseif condition="$info.bu_gupiao_jiaoyinianshu==5"}
+                                          <option  value="5" selected>交易年数: 5</option>
+                                          {elseif condition="$info.bu_gupiao_jiaoyinianshu==6"}
+                                          <option  value="6" selected>交易年数: 6 - 10年</option>
+                                          {elseif condition="$info.bu_gupiao_jiaoyinianshu==7"}
+                                          <option  value="7" selected>交易年数: 10年以上</option>
+                                          {/if}                       
+                                              <option  value="0">交易年数: 0</option>
+                                              <option  value="1">交易年数: 1</option>
+                                              <option  value="2">交易年数: 2</option>
+                                              <option  value="3">交易年数: 3</option>
+                                              <option  value="4">交易年数: 4</option>
+                                              <option  value="5">交易年数: 5</option>
+                                              <option  value="6">交易年数: 6 - 10年</option>
+                                              <option  value="7">交易年数: 10年以上</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">股票年交易次数</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_gupiao_nianjiaoyicishu">
+                                          {if condition="$info.bu_gupiao_nianjiaoyicishu==0"}
+                                          <option  value="0" selected>小于100次</option>
+                                          {elseif condition="$info.bu_gupiao_nianjiaoyicishu==1"}
+                                          <option  value="1" selected>大于100次</option>
+                                          {/if}                       
+                                              <option  value="0">小于100次</option>
+                                              <option  value="1">大于100次</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">股票交易知识水平</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_gupiao_zhishisuiping">
+                                          {if condition="$info.bu_gupiao_zhishisuiping==0"}
+                                          <option  value="0" selected>受限</option>
+                                          {elseif condition="$info.bu_gupiao_zhishisuiping==1"}
+                                          <option  value="1" selected>良好</option>
+                                          {elseif condition="$info.bu_gupiao_zhishisuiping==2"}
+                                          <option  value="2" selected>丰富</option>
+                                          {/if}                       
+                                              <option  value="0">受限</option>
+                                              <option  value="1">良好</option>
+                                              <option  value="2">丰富</option>
+                                          </select>
+                                     </div>
+                                 </div>
+<!--环球帐户专有信息-->                                 
+{if condition="$info.bu_zhanghuleixing==1"} 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">开通期权交易权限</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_kaitongqiquan">
+                                          {if condition="$info.bu_kaitongqiquan==0"}
+                                          <option  value="0" selected>否</option>
+                                          {elseif condition="$info.bu_kaitongqiquan==1"}
+                                          <option  value="1" selected>是</option>
+                                          {/if}                       
+                                              <option  value="0">否</option>
+                                              <option  value="1">是</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">期权交易年数</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_qiquan_jiaoyinianshu">
+                                          {if condition="$info.bu_qiquan_jiaoyinianshu==0"}
+                                          <option  value="0" selected>交易年数: 0</option>
+                                          {elseif condition="$info.bu_qiquan_jiaoyinianshu==1"}
+                                          <option  value="1" selected>交易年数: 1</option>
+                                          {elseif condition="$info.bu_qiquan_jiaoyinianshu==2"}
+                                          <option  value="2" selected>交易年数: 2</option>
+                                          {elseif condition="$info.bu_qiquan_jiaoyinianshu==3"}
+                                          <option  value="3" selected>交易年数: 3</option>
+                                          {elseif condition="$info.bu_qiquan_jiaoyinianshu==4"}
+                                          <option  value="4" selected>交易年数: 4</option>
+                                          {elseif condition="$info.bu_qiquan_jiaoyinianshu==5"}
+                                          <option  value="5" selected>交易年数: 5</option>
+                                          {elseif condition="$info.bu_qiquan_jiaoyinianshu==6"}
+                                          <option  value="6" selected>交易年数: 6 - 10年</option>
+                                          {elseif condition="$info.bu_qiquan_jiaoyinianshu==7"}
+                                          <option  value="7" selected>交易年数: 10年以上</option>
+                                          {/if}                       
+                                              <option  value="0">交易年数: 0</option>
+                                              <option  value="1">交易年数: 1</option>
+                                              <option  value="2">交易年数: 2</option>
+                                              <option  value="3">交易年数: 3</option>
+                                              <option  value="4">交易年数: 4</option>
+                                              <option  value="5">交易年数: 5</option>
+                                              <option  value="6">交易年数: 6 - 10年</option>
+                                              <option  value="7">交易年数: 10年以上</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">期权年交易次数</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_qiquan_nianjiaoyicishu">
+                                          {if condition="$info.bu_qiquan_nianjiaoyicishu==0"}
+                                          <option  value="0" selected>小于100次</option>
+                                          {elseif condition="$info.bu_qiquan_nianjiaoyicishu==1"}
+                                          <option  value="1" selected>大于100次</option>
+                                          {/if}                       
+                                              <option  value="0">小于100次</option>
+                                              <option  value="1">大于100次</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">期权交易知识水平</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_qiquan_zhishisuiping">
+                                          {if condition="$info.bu_qiquan_zhishisuiping==0"}
+                                          <option  value="0" selected>受限</option>
+                                          {elseif condition="$info.bu_qiquan_zhishisuiping==1"}
+                                          <option  value="1" selected>良好</option>
+                                          {elseif condition="$info.bu_qiquan_zhishisuiping==2"}
+                                          <option  value="2" selected>丰富</option>
+                                          {/if}                       
+                                              <option  value="0">受限</option>
+                                              <option  value="1">良好</option>
+                                              <option  value="2">丰富</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">开通期货交易权限</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_kaitongqihuo">
+                                          {if condition="$info.bu_kaitongqihuo==0"}
+                                          <option  value="0" selected>否</option>
+                                          {elseif condition="$info.bu_kaitongqihuo==1"}
+                                          <option  value="1" selected>是</option>
+                                          {/if}                       
+                                              <option  value="0">否</option>
+                                              <option  value="1">是</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">期货交易年数</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_qihuo_jiaoyinianshu">
+                                          {if condition="$info.bu_qihuo_jiaoyinianshu==0"}
+                                          <option  value="0" selected>交易年数: 0</option>
+                                          {elseif condition="$info.bu_qihuo_jiaoyinianshu==1"}
+                                          <option  value="1" selected>交易年数: 1</option>
+                                          {elseif condition="$info.bu_qihuo_jiaoyinianshu==2"}
+                                          <option  value="2" selected>交易年数: 2</option>
+                                          {elseif condition="$info.bu_qihuo_jiaoyinianshu==3"}
+                                          <option  value="3" selected>交易年数: 3</option>
+                                          {elseif condition="$info.bu_qihuo_jiaoyinianshu==4"}
+                                          <option  value="4" selected>交易年数: 4</option>
+                                          {elseif condition="$info.bu_qihuo_jiaoyinianshu==5"}
+                                          <option  value="5" selected>交易年数: 5</option>
+                                          {elseif condition="$info.bu_qihuo_jiaoyinianshu==6"}
+                                          <option  value="6" selected>交易年数: 6 - 10年</option>
+                                          {elseif condition="$info.bu_qihuo_jiaoyinianshu==7"}
+                                          <option  value="7" selected>交易年数: 10年以上</option>
+                                          {/if}                       
+                                              <option  value="0">交易年数: 0</option>
+                                              <option  value="1">交易年数: 1</option>
+                                              <option  value="2">交易年数: 2</option>
+                                              <option  value="3">交易年数: 3</option>
+                                              <option  value="4">交易年数: 4</option>
+                                              <option  value="5">交易年数: 5</option>
+                                              <option  value="6">交易年数: 6 - 10年</option>
+                                              <option  value="7">交易年数: 10年以上</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">期货年交易次数</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_qihuo_nianjiaoyicishu">
+                                          {if condition="$info.bu_qihuo_nianjiaoyicishu==0"}
+                                          <option  value="0" selected>小于100次</option>
+                                          {elseif condition="$info.bu_qihuo_nianjiaoyicishu==1"}
+                                          <option  value="1" selected>大于100次</option>
+                                          {/if}                       
+                                              <option  value="0">小于100次</option>
+                                              <option  value="1">大于100次</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">期货交易知识水平</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_qihuo_zhishisuiping">
+                                          {if condition="$info.bu_qihuo_zhishisuiping==0"}
+                                          <option  value="0" selected>受限</option>
+                                          {elseif condition="$info.bu_qihuo_zhishisuiping==1"}
+                                          <option  value="1" selected>良好</option>
+                                          {elseif condition="$info.bu_qihuo_zhishisuiping==2"}
+                                          <option  value="2" selected>丰富</option>
+                                          {/if}                       
+                                              <option  value="0">受限</option>
+                                              <option  value="1">良好</option>
+                                              <option  value="2">丰富</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">开通收益增强计划</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_kaitong_shouyizengqangjihua">
+                                          {if condition="$info.bu_kaitong_shouyizengqangjihua==0"}
+                                          <option  value="0" selected>否</option>
+                                          {elseif condition="$info.bu_kaitong_shouyizengqangjihua==1"}
+                                          <option  value="1" selected>是</option>
+                                          {/if}                       
+                                              <option  value="0">否</option>
+                                              <option  value="1">是</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 
+
+
+{/if}                                  
+<!--环球帐户专有信息--结束-->                                 
+
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">净流动资产</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_jingliudongzican">
+                                          {if condition="$info.bu_jingliudongzican==0"}
+                                          <option  value="0" selected>0-2万美元</option>
+                                          {elseif condition="$info.bu_jingliudongzican==1"}
+                                          <option  value="1" selected>2万-5万美元</option>
+                                          {elseif condition="$info.bu_jingliudongzican==2"}
+                                          <option  value="2" selected>5万-7.5万美元</option>
+                                          {elseif condition="$info.bu_jingliudongzican==3"}
+                                          <option  value="3" selected>7.5万-10万美元</option>
+                                          {elseif condition="$info.bu_jingliudongzican==4"}
+                                          <option  value="4" selected>10万-25万美元</option>
+                                          {elseif condition="$info.bu_jingliudongzican==5"}
+                                          <option  value="5" selected>25万-50万美元</option>
+                                          {elseif condition="$info.bu_jingliudongzican==6"}
+                                          <option  value="6" selected>50万-100万美元</option>
+                                          {elseif condition="$info.bu_jingliudongzican==7"}
+                                          <option  value="7" selected>100万-500万美元</option>
+                                          {elseif condition="$info.bu_jingliudongzican==7"}
+                                          <option  value="8" selected>大于500万美元</option>
+                                          {/if}                       
+                                              <option  value="0">0-2万美元</option>
+                                              <option  value="1">2万-5万美元</option>
+                                              <option  value="2">5万-7.5万美元</option>
+                                              <option  value="3">7.5万-10万美元</option>
+                                              <option  value="4">10万-25万美元</option>
+                                              <option  value="5">25万-50万美元</option>
+                                              <option  value="6">50万-100万美元</option>
+                                              <option  value="7">100万-500万美元</option>
+                                              <option  value="8">大于500万美元</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">净资产</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_jingzican">
+                                          {if condition="$info.bu_jingzican==0"}
+                                          <option  value="0" selected>0-2万美元</option>
+                                          {elseif condition="$info.bu_jingzican==1"}
+                                          <option  value="1" selected>2万-5万美元</option>
+                                          {elseif condition="$info.bu_jingzican==2"}
+                                          <option  value="2" selected>5万-7.5万美元</option>
+                                          {elseif condition="$info.bu_jingzican==3"}
+                                          <option  value="3" selected>7.5万-10万美元</option>
+                                          {elseif condition="$info.bu_jingzican==4"}
+                                          <option  value="4" selected>10万-25万美元</option>
+                                          {elseif condition="$info.bu_jingzican==5"}
+                                          <option  value="5" selected>25万-50万美元</option>
+                                          {elseif condition="$info.bu_jingzican==6"}
+                                          <option  value="6" selected>50万-100万美元</option>
+                                          {elseif condition="$info.bu_jingzican==7"}
+                                          <option  value="7" selected>100万-500万美元</option>
+                                          {elseif condition="$info.bu_jingzican==7"}
+                                          <option  value="8" selected>500万 - 1000万美元</option>
+                                          {elseif condition="$info.bu_jingzican==7"}
+                                          <option  value="9" selected>1000万 - 2500万美元</option>
+                                          {elseif condition="$info.bu_jingzican==7"}
+                                          <option  value="10" selected>2500万 - 3000万美元</option>
+                                          {elseif condition="$info.bu_jingzican==7"}
+                                          <option  value="11" selected>3000万 - 5000万美元</option>
+                                          {elseif condition="$info.bu_jingzican==7"}
+                                          <option  value="12" selected>大于5000万美元</option>
+                                          {/if}                       
+                                              <option  value="0">0-2万美元</option>
+                                              <option  value="1">2万-5万美元</option>
+                                              <option  value="2">5万-7.5万美元</option>
+                                              <option  value="3">7.5万-10万美元</option>
+                                              <option  value="4">10万-25万美元</option>
+                                              <option  value="5">25万-50万美元</option>
+                                              <option  value="6">50万-100万美元</option>
+                                              <option  value="7">100万-500万美元</option>
+                                              <option  value="8">500万 - 1000万美元</option>
+                                              <option  value="9">1000万 - 2500万美元</option>
+                                              <option  value="10">2500万 - 3000万美元</option>
+                                              <option  value="11">3000万 - 5000万美元</option>
+                                              <option  value="12">大于5000万美元</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">总资产</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_zongzican">
+                                          {if condition="$info.bu_zongzican==0"}
+                                          <option  value="0" selected>0-2万美元</option>
+                                          {elseif condition="$info.bu_zongzican==1"}
+                                          <option  value="1" selected>2万-5万美元</option>
+                                          {elseif condition="$info.bu_zongzican==2"}
+                                          <option  value="2" selected>5万-7.5万美元</option>
+                                          {elseif condition="$info.bu_zongzican==3"}
+                                          <option  value="3" selected>7.5万-10万美元</option>
+                                          {elseif condition="$info.bu_zongzican==4"}
+                                          <option  value="4" selected>10万-25万美元</option>
+                                          {elseif condition="$info.bu_zongzican==5"}
+                                          <option  value="5" selected>25万-50万美元</option>
+                                          {elseif condition="$info.bu_zongzican==6"}
+                                          <option  value="6" selected>50万-100万美元</option>
+                                          {elseif condition="$info.bu_zongzican==7"}
+                                          <option  value="7" selected>100万-500万美元</option>
+                                          {elseif condition="$info.bu_zongzican==7"}
+                                          <option  value="8" selected>500万 - 1000万美元</option>
+                                          {elseif condition="$info.bu_zongzican==7"}
+                                          <option  value="9" selected>1000万 - 2500万美元</option>
+                                          {elseif condition="$info.bu_zongzican==7"}
+                                          <option  value="10" selected>2500万 - 5000万美元</option>
+                                          {elseif condition="$info.bu_zongzican==7"}
+                                          <option  value="11" selected>大于5000万美元</option>
+                                          {/if}                       
+                                              <option  value="0">0-2万美元</option>
+                                              <option  value="1">2万-5万美元</option>
+                                              <option  value="2">5万-7.5万美元</option>
+                                              <option  value="3">7.5万-10万美元</option>
+                                              <option  value="4">10万-25万美元</option>
+                                              <option  value="5">25万-50万美元</option>
+                                              <option  value="6">50万-100万美元</option>
+                                              <option  value="7">100万-500万美元</option>
+                                              <option  value="8">500万 - 1000万美元</option>
+                                              <option  value="9">1000万 - 2500万美元</option>
+                                              <option  value="10">2500万 - 5000万美元</option>
+                                              <option  value="11">大于5000万美元</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">净年收入</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_jingnianshouru">
+                                          {if condition="$info.bu_jingnianshouru==0"}
+                                          <option  value="0" selected>0 - 4万美元</option>
+                                          {elseif condition="$info.bu_jingnianshouru==1"}
+                                          <option  value="1" selected>4万 - 4.5万美元</option>
+                                          {elseif condition="$info.bu_jingnianshouru==2"}
+                                          <option  value="2" selected>4.5万 - 5万美元</option>
+                                          {elseif condition="$info.bu_jingnianshouru==3"}
+                                          <option  value="3" selected>5万 - 10万美元</option>
+                                          {elseif condition="$info.bu_jingnianshouru==4"}
+                                          <option  value="4" selected>10万 - 15万美元</option>
+                                          {elseif condition="$info.bu_jingnianshouru==5"}
+                                          <option  value="5" selected>15万 - 25万美元</option>
+                                          {elseif condition="$info.bu_jingnianshouru==6"}
+                                          <option  value="6" selected>25万 - 50万美元</option>
+                                          {elseif condition="$info.bu_jingnianshouru==7"}
+                                          <option  value="7" selected>50万 - 100万美元</option>
+                                          {elseif condition="$info.bu_jingnianshouru==7"}
+                                          <option  value="8" selected>大于100万美元</option>
+                                          {/if}                       
+                                              <option  value="0">0 - 4万美元</option>
+                                              <option  value="1">4万 - 4.5万美元</option>
+                                              <option  value="2">4.5万 - 5万美元</option>
+                                              <option  value="3">5万 - 10万美元</option>
+                                              <option  value="4">10万 - 15万美元</option>
+                                              <option  value="5">15万 - 25万美元</option>
+                                              <option  value="6">25万 - 50万美元</option>
+                                              <option  value="7">50万 - 100万美元</option>
+                                              <option  value="8">大于100万美元</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                  <div class="form-group">
+                                      <label class="control-label col-lg-2" for="inputSuccess">投资目标</label>
+                                      <div class="col-lg-10">
+                                          <label class="checkbox-inline">
+                                              <input type="checkbox" id="inlineCheckbox1" value="0" {if(strpos($info.bu_touzimubiao,'0') !== false)}checked {/if} > 投机
+                                          </label>
+                                          <label class="checkbox-inline">
+                                              <input type="checkbox" id="inlineCheckbox2" value="1" {if(strpos($info.bu_touzimubiao,'1') !== false)}checked {/if}> 交易利润
+                                          </label>
+                                          <label class="checkbox-inline">
+                                              <input type="checkbox" id="inlineCheckbox3" value="2" {if(strpos($info.bu_touzimubiao,'2') !== false)}checked {/if}> 长线收益
+                                          </label>
+                                          <label class="checkbox-inline">
+                                              <input type="checkbox" id="inlineCheckbox3" value="3" {if(strpos($info.bu_touzimubiao,'3') !== false)}checked {/if}> 对冲
+                                          </label>
+                                          <label class="checkbox-inline">
+                                              <input type="checkbox" id="inlineCheckbox3" value="4" {if(strpos($info.bu_touzimubiao,'4') !== false)}checked {/if}> 股息收入
+                                          </label>
+                                          <label class="checkbox-inline">
+                                              <input type="checkbox" id="inlineCheckbox3" value="5" {if(strpos($info.bu_touzimubiao,'5') !== false)}checked {/if}> 低风险保值
+                                          </label>
+
+                                      </div>
+                                  </div>
+
+
+<!--环球帐户专有信息-->                                 
+{if condition="$info.bu_zhanghuleixing==1"} 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">法律承认</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_faluchengren">
+                                          {if condition="$info.bu_faluchengren==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_faluchengren==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+
+{/if}                                  
+<!--环球帐户专有信息--结束-->                                 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">帐户交易控制及所有权证明</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_jiaoyikongzhi_ji_suoyouquan">
+                                          {if condition="$info.bu_jiaoyikongzhi_ji_suoyouquan==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_jiaoyikongzhi_ji_suoyouquan==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">保证金披露</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_baozhengjinpilou">
+                                          {if condition="$info.bu_baozhengjinpilou==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_baozhengjinpilou==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">客户协议</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_kehuxieyi">
+                                          {if condition="$info.bu_kehuxieyi==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_kehuxieyi==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+<!--环球帐户专有信息-->                                 
+{if condition="$info.bu_zhanghuleixing==1"} 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">免责及隐私声明</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_mianze_ji_yinsi">
+                                          {if condition="$info.bu_mianze_ji_yinsi==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_mianze_ji_yinsi==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">其他交易品种协议和披露声明</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_qitajiaoyipinzhong_ji_piloushengming">
+                                          {if condition="$info.bu_qitajiaoyipinzhong_ji_piloushengming==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_qitajiaoyipinzhong_ji_piloushengming==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">通知和确认清算安排</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_tongzhi_he_querenqingsuananpai">
+                                          {if condition="$info.bu_tongzhi_he_querenqingsuananpai==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_tongzhi_he_querenqingsuananpai==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">期权交易风险告知和免责声明</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_qiquanjiaoyifengxian_he_mianzeshengming">
+                                          {if condition="$info.bu_qiquanjiaoyifengxian_he_mianzeshengming==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_qiquanjiaoyifengxian_he_mianzeshengming==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">Interactive Brokers Arbitration Agreement</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_hudongjingjiren_zhongcaixieyi">
+                                          {if condition="$info.bu_hudongjingjiren_zhongcaixieyi==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_hudongjingjiren_zhongcaixieyi==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+
+{/if}                                  
+<!--环球帐户专有信息--结束-->                                 
+<!--标准帐户专有信息-->                               
+{if condition="$info.bu_zhanghuleixing==2"} 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">Client Acknowledges& risk disclosure statement</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_kehuqieren_he_fengxianpiloushengming">
+                                          {if condition="$info.bu_kehuqieren_he_fengxianpiloushengming==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_kehuqieren_he_fengxianpiloushengming==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+{/if}                                  
+<!--标准帐户专有信息--结束--> 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">W-8BEN Substitute在美预扣税和报税受益人外籍身份证明（个人）</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_w8ben">
+                                          {if condition="$info.bu_w8ben==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_w8ben==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">本人同意所有税务表格均用过电子形式而非纸质形式收集和发送，包括通过账户管理收集和发送。</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_dianzixingshifasong">
+                                          {if condition="$info.bu_dianzixingshifasong==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_dianzixingshifasong==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+<!--标准帐户专有信息-->                               
+{if condition="$info.bu_zhanghuleixing==2"} 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">CRS自我认证表</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_crs_ziworenzheng">
+                                          {if condition="$info.bu_crs_ziworenzheng==0"}
+                                          <option  value="0" selected>本人不同意</option>
+                                          {elseif condition="$info.bu_crs_ziworenzheng==1"}
+                                          <option  value="1" selected>本人同意</option>
+                                          {/if}                       
+                                              <option  value="0">本人不同意</option>
+                                              <option  value="1">本人同意</option>
+                                          </select>
+                                     </div>
+                                 </div>
+{/if}                                  
+<!--标准帐户专有信息--结束--> 
+
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">身份证正面</label>
+                                     <div class="col-lg-10">
+                                       <div id="btn_sfz_zm_img" class="">
+                                         {if condition="$info.bu_shenfenzheng_A"}  <img src="{$info.bu_shenfenzheng_A}" alt="" style="width: 600px;">{/if} 
+                                       </div>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">身份证反面</label>
+                                     <div class="col-lg-10">
+                                       <div id="btn_sfz_zm_img" class="">
+                                         {if condition="$info.bu_shenfenzheng_B"}  <img src="{$info.bu_shenfenzheng_B}" alt="" style="width: 600px;">{/if} 
+                                       </div>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">地址证明（英文版有）</label>
+                                     <div class="col-lg-10">
+                                       <div id="btn_sfz_zm_img" class="">
+                                         {if condition="$info.bu_dizhizhengming_img"}  <img src="{$info.bu_dizhizhengming_img}" alt="" style="width: 600px;">{/if} 
+                                       </div>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">签名图片</label>
+                                     <div class="col-lg-10">
+                                       <div id="btn_sfz_zm_img" class="">
+                                         {if condition="$info.bu_qianming"}  <img src="{$info.bu_qianming}" alt="" style="width: 600px;">{/if} 
+                                       </div>
+                                     </div>
+                                 </div>
+ 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">注册语言</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_language">
+                                          {if condition="$info.bu_language==0"}
+                                          <option  value="0" selected>中文</option>
+                                          {elseif condition="$info.bu_language==1"}
+                                          <option  value="1" selected>英文</option>
+                                          {/if}                       
+                                              <option  value="0">中文</option>
+                                              <option  value="1">英文</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">注册时间</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_intime" name="bu_intime"   value="{$info.bu_intime|date='Y-m-d H:i:s',###}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">注册IP</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_ip" name="bu_ip"   value="{$info.bu_ip}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">注册到第几步</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_register_step" name="bu_register_step"   value="{$info.bu_register_step}">
+                                     </div>
+                                 </div>
+  
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">帐户余额</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_yue" name="bu_yue"   value="{$info.bu_yue}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">注册来源</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_laiyuan">
+                                          {if condition="$info.bu_laiyuan==1"}
+                                          <option  value="1" selected>官网</option>
+                                          {elseif condition="$info.bu_laiyuan==2"}
+                                          <option  value="2" selected>移动端</option>
+                                          {elseif condition="$info.bu_laiyuan==3"}
+                                          <option  value="3" selected>应用程序</option>
+                                          {elseif condition="$info.bu_laiyuan==4"}
+                                          <option  value="4" selected>安卓</option>
+                                          {elseif condition="$info.bu_laiyuan==5"}
+                                          <option  value="5" selected>IOS</option>
+                                          {/if}                       
+                                              <option  value="1">官网</option>
+                                              <option  value="2">移动端</option>
+                                              <option  value="3">应用程序</option>
+                                              <option  value="4">安卓</option>
+                                              <option  value="5">IOS</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">帐户能力</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_zhanghunengli">
+                                          {if condition="$info.bu_zhanghunengli==1"}
+                                          <option  value="1" selected>现金帐户</option>
+                                          {/if}                       
+                                              <option  value="1">现金帐户</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">基础币种</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_jichubizhong">
+                                          {if condition="$info.bu_jichubizhong==1"}
+                                          <option  value="1" selected>USD</option>
+                                          {/if}                       
+                                              <option  value="1">USD</option>
+                                          </select>
+                                     </div>
+                                 </div>
+  
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">邀请码</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_dl_yaoqingma" name="bu_dl_yaoqingma"  readonly  value="{$info.bu_dl_yaoqingma}">
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label" style="color:#F00;">以下内容可以修改</label>
+                                 </div>
+
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">审核</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_shenhe">
+                                          {if condition="$info.bu_shenhe==0"}
+                                          <option  value="0" selected>未注册完</option>
+                                          {elseif condition="$info.bu_shenhe==1"}
+                                          <option  value="1" selected>待审核</option>
+                                          {elseif condition="$info.bu_shenhe==2"}
+                                          <option  value="2" selected>审核通过</option>
+                                          {elseif condition="$info.bu_shenhe==2"}
+                                          <option  value="3" selected>审核失败</option>
+                                          {/if}                       
+                                              <option  value="0">未注册完</option>
+                                              <option  value="1">待审核</option>
+                                              <option  value="2">审核通过</option>
+                                              <option  value="3">审核失败</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">用户状态</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="bu_status">
+                                          {if condition="$info.bu_status==0"}
+                                          <option  value="0" selected>停用（停用后禁止登陆）</option>
+                                          {elseif condition="$info.bu_status==1"}
+                                          <option  value="1" selected>启用（默认启用）</option>
+                                          {/if}                       
+                                              <option  value="0">停用（停用后禁止登陆）</option>
+                                              <option  value="1">启用（默认启用）</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">MT5帐户</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_mt5" name="bu_mt5"    value="{$info.bu_mt5}">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">修改密码</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="bu_password" name="bu_password"   value="">
+                                     </div>
+                                 </div>
+                                  <div class="form-group">
+                                     <div class="col-lg-offset-2 col-lg-10">
+                                     <input name="id" type="hidden" value="{$info.bu_id}">
+                                         <button class="btn btn-danger" type="submit">提交</button>
+                                     </div>
+                                 </div>
+                             </form>
+                         </div>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!--尾部文件-->
+  {include file="public/foot" /}

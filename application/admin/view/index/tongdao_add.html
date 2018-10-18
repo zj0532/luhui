@@ -1,0 +1,114 @@
+<!--头部文件-->
+{include file="public/head" /}
+
+<body>
+  <section id="container" class="">
+    <!--头部栏-->
+    {include file="public/header"}
+    <!--侧边栏-->
+    {include file="public/sidebar"}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                新增通道
+              </header>
+              <div class="panel-body">
+                             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">通道</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="tdn_id">
+                                         {foreach name="tongdaolist" item="vo"}
+                                              <option  value="{$vo.tdn_id}">{$vo.tdn_tdname}</option>
+                                         {/foreach}
+                                          </select>
+                                     </div>
+                                 </div>
+                               <div class="form-group">
+                                   <label class="col-lg-2 control-label">通道名称</label>
+                                   <div class="col-lg-10">
+                                       <input class="form-control" id="td_mingcheng" name="td_mingcheng" placeholder="通道名-商户名，例如：杉德支付-大唐网络有限公司">
+                                   </div>
+                               </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">通道描述</label>
+                                     <div class="col-lg-10">
+                                       <textarea name="td_miaoshu" id="td_miaoshu" class="form-control" cols="45" rows="5" placeholder="通道描述"></textarea>
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">杉德-商户ID</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="td_sd_shanghuid" name="td_sd_shanghuid" placeholder="杉德-商户ID,在杉德开户信邮件中获取">
+                                     </div>
+                                 </div>
+								
+                                <div class="form-group">
+                                     <label class="col-lg-2 control-label">杉德-公钥文件</label>
+                                     <div class="col-lg-10">
+                                         <input type="file" name="td_sd_gongshi" id="td_sd_gongshi">
+                                     </div>
+                                  </div>                                 
+                                <div class="form-group">
+                                     <label class="col-lg-2 control-label">杉德-私钥文件</label>
+                                     <div class="col-lg-10">
+                                         <input type="file" name="td_sd_sishi" id="td_sd_sishi">
+                                     </div>
+                                  </div>                                 
+                                 
+                                 
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">杉德-私钥密码</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="td_sd_sishimima" name="td_sd_sishimima" placeholder="杉德-私钥密码-按杉德要求在www.cfca.com.cn下载私钥时设置的密码，如果忘记，请重新下载并设置密码">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">支付手续费</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="td_zhifushouxufei" name="td_zhifushouxufei" placeholder="支付手续费，这里填的是对平台自已的手续费">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">提现手续费</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="td_tixianshouxufei" name="td_tixianshouxufei" placeholder="提现手续费，这里填的是对平台自已的提现手续费">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">通道限额</label>
+                                     <div class="col-lg-10">
+                                         <input class="form-control" id="td_xiane" name="td_xiane" placeholder="通道限额，这里填的是第三方支付通道的额度限制">
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-lg-2 control-label">状态</label>
+                                     <div class="col-lg-10">
+                                         <select class="form-control m-bot15" name="td_zhuangtai">
+                                              <option  value="1" selected>启用</option>
+                                              <option  value="2">停用</option>
+                                          </select>
+                                     </div>
+                                 </div>
+                                  <div class="form-group">
+                                     <div class="col-lg-offset-2 col-lg-10">
+                                         <button class="btn btn-danger" type="submit">提交</button>
+                                     </div>
+                                 </div>
+                             </form>
+                         </div>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!--尾部文件-->
+  {include file="public/foot" /}

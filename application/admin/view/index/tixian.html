@@ -1,0 +1,128 @@
+<!--头部文件-->
+{include file="public/head" /}
+
+<body>
+  <section id="container" class="">
+    <!--头部栏-->
+    {include file="public/header"}
+    <!--侧边栏-->
+    {include file="public/sidebar"}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                提现管理列表 list
+              </header>
+              <div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+				
+                <table class="table table-striped border-top dataTable" id="sample_1" aria-describedby="sample_1_info">
+                  <thead style="font-size:14px">
+                    <tr role="row">
+                      <th class="sorting"   width="100">id</th>
+                      <th class="sorting"   width="100">用户ID</th>
+                      <th class="sorting" width="200">收款人姓名</th>
+                      <th class="sorting" width="200">银行名称</th>
+                      <th class="sorting" width="200">银行帐号</th>
+                      <th class="sorting" width="200">提现金额</th>
+                      <th class="sorting" width="200">余额</th>
+                      <th class="sorting" width="200">提现状态</th>
+                      <th class="sorting" width="200">申请时间</th>
+                      <th class="sorting" width="200">支付时间</th>
+                      <th class="sorting" width="200">审核状态</th>
+                      <th class="sorting" width="200">用户状态</th>
+                      <th class="sorting" width="200">操作</th>
+                    </tr>
+                  </thead>
+{foreach name="info" item="vo"}
+                  <tbody role="alert" aria-live="polite" aria-relevant="all" style="font-size:12px">
+                    <tr class="odd gradeX">
+                      <td class=" ">{$vo.tx_id}</td>
+                      <td class=" ">{$vo.tx_user_id}</td>
+                      <td class=" ">{$vo.tx_shoukuanren}</td>
+                      <td class=" ">{$vo.tx_yhk_yhmc}</td>
+                      <td class=" ">{$vo.tx_yhk_zh}</td>
+                      <td class=" ">{$vo.tx_jine} $</td>
+                      <td class=" ">{$vo.bu_yue} $</td>
+                      <td class=" ">
+                      {if condition="$vo.tx_zhuangtai==0"}
+                      <span style="color:#CC9">待审核</span>
+                      {elseif condition="$vo.tx_zhuangtai==1"}
+                      <span style="color:#F00">拒绝</span>
+                      {elseif condition="$vo.tx_zhuangtai==2"}
+                      <span style="color:#0F0">已支付</span>
+                      {/if}
+                      
+                      </td>
+                      <td class="">{if condition="$vo.tx_time"}{$vo.tx_time|date="Y-m-d H:i:s",###}{/if}</td>
+                      <td class="">{if condition="$vo.tx_paytime"}{$vo.tx_paytime|date="Y-m-d H:i:s",###}{/if}</td>
+                     <td class="">
+                      {if condition="$vo.bu_shenhe==0"}
+                      <span style="color:#F00">未注册完</span>
+                      {elseif condition="$vo.bu_shenhe==1"}
+                      <span style="color:#F00">待审核</span>
+                      {elseif condition="$vo.bu_shenhe==2"}
+                      <span style="color:#0F0">审核通过</span>
+                      {elseif condition="$vo.bu_shenhe==3"}
+                      <span style="color:#F00">审核失败</span>
+                      {/if}
+                      </td>
+                     <td class="">
+                      {if condition="$vo.bu_status==0"}
+                      <span style="color:#F00">停用</span>
+                      {elseif condition="$vo.bu_status==1"}
+                      <span style="color:#0F0">启用</span>
+                      {/if}
+                      </td>
+                      <td class="">
+                      {if condition="$vo.tx_zhuangtai==0"}<a href="/admcncp/tixianEdit/{$vo.tx_id}/{$data.page}"><button type="button" class="btn btn-info btn-xs">编辑</button></a> {/if}
+                      </td>
+                    </tr>
+                  </tbody>
+{/foreach}                  
+                </table>
+                <script language="javascript">
+				function tiaosubmit()
+				{
+					var tiaopage=$("#page11").attr("value");
+					if(tiaopage>0)
+					{
+					location.href='/admcncp/tixian/'+tiaopage;
+					}
+					else
+					{
+						alert("页数不能小于等于0");	
+					}
+
+				}
+				</script>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="dataTables_info" id="sample_1_info">一共{$data.countpage}页  当前第{$data.page}页 一共{$data.countnum}条记录</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="dataTables_paginate paging_bootstrap pagination">
+                      <ul>
+                        <li class="prev"><a href="/admcncp/tixian/{$data.shangpage}">← 上一页</a></li>
+                        <li class="next"><a href="/admcncp/tixian/{$data.xiapage}">下一页 → </a></li>
+                        <li >转到第&nbsp;<input name="page11" id="page11" type="text" size="4" style=" border:1px solid #999999;" />&nbsp;页 <input name="tiaozhuan" value="跳转" type="button" onClick="tiaosubmit()"></li>
+                
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!--尾部文件-->
+  {include file="public/foot" /}

@@ -1,0 +1,112 @@
+<!--头部文件-->
+{include file="public/head" /}
+
+<body>
+  <section id="container" class="">
+    <!--头部栏-->
+    {include file="public/header"}
+    <!--侧边栏-->
+    {include file="public/sidebar"}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                商户管理 LIST <!--<a href="/admcncp/tongdaoAdd"> <button type="button" class="btn btn-danger btn-xs pull-right">添加 通道</button></a>-->
+              </header>
+              <div id="sample_1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                <div class="panel-body">
+                  <div class="col-sm-6"></div>
+                </div>
+                <table class="table table-striped border-top dataTable" id="sample_1" aria-describedby="sample_1_info">
+                  <thead>
+                    <tr role="row">
+                      <th class="sorting" >id</th>
+                      <th class="sorting" >手机号</th>
+                      <th class="sorting" >邮箱</th>
+                      <th class="sorting" >用户名</th>
+                      <th class="sorting" >姓名</th>
+                      <th class="sorting" >帐户类型</th>
+                      <th class="sorting" >注册时间</th>
+                      <th class="sorting" >注册状态</th>
+                      <th class="sorting" >审核状态</th>
+                      <th class="sorting" >用户状态</th>
+                      <th class="sorting" >MT5帐户</th>
+                      <th class="sorting" >帐户余额</th>
+                      <th class="sorting" >操作</th>
+                    </tr>
+                  </thead>
+
+    
+         
+{foreach name="list" item="vo"}
+                  <tbody role="alert" aria-live="polite" aria-relevant="all">
+                    <tr class="odd gradeX">
+                      <td class=" ">{$vo.bu_id}</td>
+                      <td class=" ">{$vo.bu_phone}</td>
+                      <td class=" ">{$vo.bu_email}</td>
+                      <td class=" ">{$vo.bu_username}</td>
+                      <td class=" ">{$vo.bu_xingming}</td>
+                      <td class=" ">
+                      {if condition="$vo.bu_zhanghuleixing==1"}
+                      环球帐户
+                      {elseif condition="$vo.bu_zhanghuleixing==2"}
+                      标准帐户
+                      {/if}                      
+                      </td>
+                      <td class=" ">{$vo.bu_intime|date="Y-m-d H:i:s",###}</td>
+                      <td class=" ">第 {$vo.bu_register_step} 步</td>
+                      <td class=" ">
+                      {if condition="$vo.bu_shenhe==2"}
+                      审核通过
+                      {elseif condition="$vo.bu_shenhe==1"}
+                      待审核
+                      {elseif condition="$vo.bu_shenhe==0"}
+                      未注册完
+                      {/if}                      
+                      </td>
+                      <td class=" ">
+                      {if condition="$vo.bu_status==1"}
+                      启用
+                      {elseif condition="$vo.bu_status==0"}
+                      停用
+                      {/if}                      
+                      </td>
+                      <td class=" ">{$vo.bu_mt5}</td>
+                      <td class=" ">¥ {$vo.bu_yue} 元</td>
+                      <td class=" ">
+                        <a href="/admcncp/shanghuEdit/{$vo.bu_id}"><button type="button" class="btn btn-info btn-xs">修改</button></a>&nbsp;&nbsp;
+                        <a href="/admcncp/shanghuJiaoyi/{$vo.bu_id}/1"><button type="button" class="btn btn-info btn-xs">交易记录</button></a>
+                        <!--<a href="/admcncp/keyword_delete/1"><button type="button" class="btn btn-warning btn-xs">删除</button></a>-->
+                      </td>
+                    </tr>
+                  </tbody>
+ {/foreach}                  
+                </table>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="dataTables_info" id="sample_1_info"> 当前第 {$data.page} 页，共 {$data.countpage} 页</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="dataTables_paginate paging_bootstrap pagination">
+                      <ul>
+                        <li class="prev"><a href="/admcncp/shanghu/{$data.shangpage}">← 上一页</a></li>
+                        <li class="next"><a href="/admcncp/shanghu/{$data.xiapage}">下一页 → </a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+  </section>
+  <!--尾部文件-->
+  {include file="public/foot" /}

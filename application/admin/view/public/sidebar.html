@@ -1,0 +1,177 @@
+<aside>
+  <div id="sidebar" class="nav-collapse ">
+    <ul class="sidebar-menu">
+      {eq name="sidebar" value="1"}
+      <li class="active">
+      {else/}
+      <li>
+      {/eq}
+        <a class="" href="/admin/">
+          <i class="icon-user"></i>
+            <span>管理员</span>
+          </a>
+      </li>
+      <!--{eq name="sidebar" value="8"}
+      <li class="active">
+      {else/}
+      <li>
+      {/eq}
+        <a class="" href="/admcncp/tongdao">
+          <i class="icon-exchange"></i>
+            <span>通道管理</span>
+          </a>
+      </li>-->
+        {eq name="sidebar" value="2"}
+        <li class="active">
+            {else/}
+        <li>
+            {/eq}
+        <a class="" href="/admin/product/1">
+          <i class="icon-male"></i>
+            <span>产品展示</span>
+          </a>
+      </li>
+      {eq name="sidebar" value="3"}
+      <li class="active">
+      {else/}
+      <li>
+      {/eq}
+                          <!--page/tx_zhuangtai/kaishishijian/jiesushijian/tx_shanghu_id/-->
+        <a class="" href="/admin/production/1">
+          <i class="icon-dollar"></i>
+            <span>生产环境</span>
+          </a>
+      </li>
+        {eq name="sidebar" value="4"}
+        <li class="active">
+            {else/}
+        <li>
+            {/eq}
+            <a class="" href="{:url('admin/news/1')}">
+                <i class="icon-file-text-alt"></i>
+                <span>新闻资讯</span>
+            </a>
+        </li>
+      {eq name="sidebar" value="5"}
+      <li class="active">
+      {else/}
+      <li>
+      {/eq}
+                          <!--page/tx_zhuangtai/kaishishijian/jiesushijian/tx_shanghu_id/-->
+        <a class="" href="/admin/contactEdit">
+          <i class="icon-dollar"></i>
+            <span>联系我们</span>
+        </a>
+      </li>
+
+
+      <!--{eq name="sidebar" value="12"}-->
+      <!--<li class="active">-->
+      <!--{else/}-->
+      <!--<li>-->
+      <!--{/eq}-->
+                          <!--&lt;!&ndash;page/tx_zhuangtai/kaishishijian/jiesushijian/tx_shanghu_id/&ndash;&gt;-->
+        <!--<a class="" href="/admin/daili/1">-->
+          <!--<i class="icon-user-md"></i>-->
+            <!--<span>代理管理</span>-->
+          <!--</a>-->
+      <!--</li>-->
+
+<!--{if condition="($Think.session.admin_leixing eq 1) OR ($Think.session.admin_leixing eq 2) OR ($Think.session.admin_leixing eq 3)"}
+      {eq name="sidebar" value="2"}
+      <li class="active">
+      {else/}
+      <li>
+      {/eq}
+        <a class="" href="/admin/zhangdan/1/-1/0/0/0/0">
+          <i class="icon-dashboard"></i>
+            <span>订单管理</span>
+          </a>
+      </li>
+{/if}-->
+
+      <!--{eq name="sidebar" value="5"}-->
+      <!--<li class="active">-->
+      <!--{else/}-->
+      <!--<li>-->
+      <!--{/eq}-->
+        <!--<a class="" href="/admin/xitongrizhi/1/0/0/0">-->
+          <!--<i class="icon-bar-chart"></i>-->
+            <!--<span>系统操作日志</span>-->
+          <!--</a>-->
+      <!--</li>-->
+<!--      {eq name="sidebar" value="6"}
+      <li class="active">
+      {else/}
+      <li>
+      {/eq}
+        <a class="" href="/admin/shanghurizhi/1/0/0/0">
+          <i class="icon-bar-chart"></i>
+            <span>商户操作日志</span>
+          </a>
+      </li>
+-->
+
+<!--{if condition="($Think.session.admin_leixing eq 1) OR ($Think.session.admin_leixing eq 3)"}-->
+      <!--{eq name="sidebar" value="7"}-->
+      <!--<li class="active">-->
+      <!--{else/}-->
+      <!--<li>-->
+      <!--{/eq}-->
+        <!--<a class="" href="/admin/zijinrizhi/1/0/0/0/0">-->
+          <!--<i class="icon-bar-chart"></i>-->
+            <!--<span>资金流水日志</span>-->
+          <!--</a>-->
+      <!--</li>-->
+      <!--{eq name="sidebar" value="9"}
+      <li class="active">
+      {else/}
+      <li>
+      {/eq}
+        <a class="" href="/admin/tongdaolirun/1/0/0/0">
+          <i class="icon-bar-chart"></i>
+            <span>通道利润流水日志</span>
+          </a>
+      </li>
+      {eq name="sidebar" value="10"}
+      <li class="active">
+      {else/}
+      <li>
+      {/eq}
+        <a class="" href="/admin/dingdanyichang/1/0/0/0">
+          <i class="icon-bar-chart"></i>
+            <span>订单异常报警</span>
+          </a>
+      </li>-->
+<!--{/if}      -->
+
+
+
+
+      {eq name="sidebar" value="6"}
+      <li class="active">
+      {else/}
+      <li>
+      {/eq}
+        <a class="" href="/admin/banner/1">
+          <i class="icon-file-text-alt"></i>
+            <span>banner管理</span>
+          </a>
+      </li>
+
+      <!--{eq name="sidebar" value="14"}-->
+      <!--<li class="active">-->
+      <!--{else/}-->
+      <!--<li>-->
+      <!--{/eq}-->
+        <!--<a class="" href="/admin/gonggao/1">-->
+          <!--<i class="icon-file-text-alt"></i>-->
+            <!--<span>AFG公告</span>-->
+          <!--</a>-->
+      <!--</li>-->
+
+
+
+    </ul>
+  </div>
+</aside>
